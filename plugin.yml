@@ -1,0 +1,10 @@
+name: NameHistory
+author: Agazed
+description: Check player name history
+website: http://agazed.net
+main: net.agazed.namehistory.NameHistory
+version: 1.0
+commands:
+  namehistory:
+    description: Check player name history
+    aliases: [nh, name, names, history, username, usernames]
