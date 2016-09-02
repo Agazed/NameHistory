@@ -11,6 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
@@ -20,6 +21,15 @@ import java.util.TimeZone;
 import javax.net.ssl.HttpsURLConnection;
 
 public class NameHistory extends JavaPlugin {
+
+	public void onEnable() {
+		try {
+			Metrics metrics = new Metrics(this);
+			metrics.start();
+		} catch (IOException e) {
+			getLogger().info("Failed to submit metrics!");
+		}
+	}
 
 	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
